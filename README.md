@@ -81,3 +81,14 @@
 		- e.g. Delete a branch "develop".
 			- git checkout main
 			- git branch -D develop
+
+## Update remote repository
+
+- Prior to executing merge operations: (Not recommended to update master branch using merge command, always use pull request for merging new changes into master)
+	- Confirm all changes are:
+		- Properly tested.
+		- Code reviewed (if applicable).
+		- Conflict-free with the target branch
+	- `git merge origin main` # Standard merge command.
+	- `git merge -f origin main` # Force merge command.
+		
