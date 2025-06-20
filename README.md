@@ -64,7 +64,10 @@
 	- `git checkout <branch name>`
 		- e.g. Checkout to "develop" branch.
 			- git checkout develop
-		
+
+- Create a new branch and switch to it immediately.
+	- `git checkout -b <branch name>`
+
 - Merge two branches.
 	- To integrate changes from one branch into another.
 	- Switch to the target branch (the receiving branch).
