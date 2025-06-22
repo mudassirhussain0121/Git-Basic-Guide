@@ -1,4 +1,4 @@
-# Learning Git
+# Git Basic Guide
 
 - Open a terminal and navigate to your project’s root directory and execute the following command to initialize Git.
 	- `git init . or git init`
@@ -94,4 +94,26 @@
 		- Conflict-free with the target branch
 	- `git merge origin main` # Standard merge command.
 	- `git merge -f origin main` # Force merge command.
-		
+
+## Create pull request to remote repository
+
+- To create a pull request to remote master/repo.
+	- Switch to that branch and run push command.
+		- `git checkout <branch name>`
+		- `git push origin <branch name>`
+			- e.g. Create a pull request from branch "develop".
+				- git checkout develop
+				- git push origin develop
+
+## Rebase branch to master and resolve conflict
+
+- Rebase local branch to local master/main.
+	- Switch to the target branch and run rebase command.
+		- `git checkout <branch name>`
+		- `git rebase main`
+	- After rebase their is high chance that conflicts occurs. Fix conflicts in marked files.
+		- Manually resolve conflicts by removing all code between <<<<<<<<<<, the commit hash (e.g., 123123454645768768), and ==============, as well as the line containing >>>>>>>>>> your previous commit.
+		- Remove conflicts from all files and run following commands.
+			- `git add <file name> or git add .` # To add all file at once.
+			- `git rebase --continue`
+		- After this command it will show next conflict. Continue from step 1 until all conflicts are resolved.
