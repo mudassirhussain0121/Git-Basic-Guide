@@ -5,7 +5,7 @@
 
 - To create a local copy of an existing remote repository (the process called cloning), execute the following command.
 	- `git clone <repo url>`
-		- e.g. Clone a project into local project directory/
+		- Example: Clone a project into local project directory/
 			- git clone https://github.com/ARMmbed/mbed-os.git
 		
 - To check the current state of your working directory and staging area, execute the following command.
@@ -19,7 +19,7 @@
 
 - Prior to committing changes, all modified or untracked files must be staged using the `git add` command.
 	- `git add <file name>`
-		- e.g. git add README.md
+		- Example: git add README.md
 	- To stage all changes in the current directory (including subdirectories):
 		- `git add .`
 	- Following the execution of the `git add` command, successfully staged files will be displayed in green when viewing the repository status via `git status`. This color indication signifies that:
@@ -29,7 +29,7 @@
 
 - To commit the changes into the repository.
 	- `git commit -m <"comments about changes">`
-		- e.g. git commit -m "Added information about git in README."
+		- Example: git commit -m "Added information about git in README."
 
 - To review the most recent commits in the repository.
 	- `git log`
@@ -38,17 +38,17 @@
 	- Soft reset: It removes the most recent commit while preserving all changes in the working directory and staging area.
 		- `git reset --soft HEAD~<n>`
 			- `n`: Number of commits to undo (positive integer).
-			- e.g. To remove most recent commit.
+			- Example: To remove most recent commit.
 				- git reset --soft HEAD~1
 	- Hard reset: It permanently removes the most recent commit and discards all associated changes in both the working directory and staging area
 		- `git reset --hard HEAD~<n>`
 			- `n`: Number of commits to undo (positive integer).
-			- e.g. To remove last 2 recent commit from respository along with changes.
+			- Example: To remove last 2 recent commit from respository along with changes.
 				- git reset --hard HEAD~2
 	- Delete specific commit.
 		- `git reset --soft/hard <commit>`
-			- e.g. git reset --soft c14809fa
-			- e.g. git reset --hard c14809fa
+			- Example: git reset --soft c14809fa
+			- Example: git reset --hard c14809fa
 
 ## Branches
 
@@ -57,12 +57,12 @@
 	
 - To create a new branch.
 	- `git branch <branch name>`
-		- e.g. Create a new branch called "develop".
+		- Example: Create a new branch called "develop".
 			- git branch develop
 	
 - Switch to new branch.
 	- `git checkout <branch name>`
-		- e.g. Checkout to "develop" branch.
+		- Example: Checkout to "develop" branch.
 			- git checkout develop
 
 - Create a new branch and switch to it immediately.
@@ -73,7 +73,7 @@
 	- Switch to the target branch (the receiving branch).
 	- Execute merge command.
 	- `git merge <branch name>`
-		- e.g "develop" branch is mearge into "main" branch.
+		- Example: "develop" branch is mearge into "main" branch.
 			- git checkout main
 			- git merge develop
 
@@ -81,7 +81,7 @@
 	- To delete the branch, navigate to a safe branch (typically main/master) and execute delete branch command.
 	- `git branch -d <branch name>` # Safe deletion (verifies merge status)
 	- `git branch -D <branch name>` # Force deletion (unmerged changes will be lost)
-		- e.g. Delete a branch "develop".
+		- Example: Delete a branch "develop".
 			- git checkout main
 			- git branch -D develop
 
@@ -101,7 +101,7 @@
 	- Switch to that branch and run push command.
 		- `git checkout <branch name>`
 		- `git push origin <branch name>`
-			- e.g. Create a pull request from branch "develop".
+			- Example: Create a pull request from branch "develop".
 				- git checkout develop
 				- git push origin develop
 
@@ -117,3 +117,25 @@
 			- `git add <file name> or git add .` # To add all file at once.
 			- `git rebase --continue`
 		- After this command it will show next conflict. Continue from step 1 until all conflicts are resolved.
+
+## Comparing changes in Branches, Commits and Files
+
+- Compare unstaged changes (changes in working directory but not staged).
+	- `git diff`
+- Compare staged changes (changes added to staging area uisng `git add .` command).
+	- `git diff --staged`
+- Compare changes between two branches.
+	- `git diff branch1..branch2`
+	- Example: git diff main..feature/login
+- Compare two commits.
+	- `git diff commit1 commit2`
+	- Example: git diff 9f2f031f2e86c996cf25cb05c547e54bd2de15bc 61b76db3ba36dba43ee714f542e5be6d4080cfbf (Using full commit number)
+	- Example: git diff 9f2f031f2 61b76db3ba (Using part of commit number)
+- Compare changes in a file.
+	- `git diff -- file.txt`
+	- Example: git diff -- README.md
+- Opens external diff tool to show unstaged changes.
+	- `git difftool`
+	- Example: Output will look this following.
+
+![difftoll output.png](/images/difftoll_output.png)
